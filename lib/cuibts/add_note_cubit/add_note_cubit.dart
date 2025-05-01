@@ -7,9 +7,8 @@ import 'package:notes_app/models/note_model.dart';
 class AddNoteCubit extends Cubit<AddNoteState> {
   AddNoteCubit() : super(AddNoteInitial());
   addNote(NoteModel note) async {
-    emit(AddNoteloading());
-
     try {
+      emit(AddNoteloading());
       var notesBox = Hive.box<NoteModel>(kNotesBox);
       await notesBox.add(note);
       emit(AddNoteSuccess());
