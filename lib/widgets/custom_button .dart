@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constants.dart';
+import 'package:notes_app/cuibts/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/cuibts/add_note_cubit/add_note_state.dart';
 
 class CustomButton extends StatelessWidget {
   final void Function()? ontap;
@@ -14,9 +17,23 @@ class CustomButton extends StatelessWidget {
       onPressed: ontap,
       color: kPrimaryColor,
       child: Center(
-        child: Text(
-          "Add",
-          style: TextStyle(color: Colors.black, fontSize: 20),
+        child: BlocBuilder<AddNoteCubit, AddNoteState>(
+          builder: (context, state) {
+            if (state is AddNoteloading) {
+              return SizedBox(
+                height: 30,
+                width: 30,
+                child: CircularProgressIndicator(
+                  color: Colors.black,
+                ),
+              );
+            } else {
+              return Text(
+                "Add",
+                style: TextStyle(color: Colors.black, fontSize: 20),
+              );
+            }
+          },
         ),
       ),
     );
