@@ -39,7 +39,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             height: 20,
           ),
           CustomTextField(
-            hintText: 'Title',
+            hintText: widget.note.title,
             onchanged: (value) {
               title = value;
             },
@@ -48,7 +48,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             height: 16,
           ),
           CustomTextField(
-            hintText: 'Content',
+            hintText: widget.note.subtitle,
             maxLines: 7,
             onchanged: (value) {
               content = value;
