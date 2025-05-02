@@ -10,10 +10,12 @@ class NoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => EditNoteView(note: note,)));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => EditNoteView(
+                  note: note,
+                )));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10),
