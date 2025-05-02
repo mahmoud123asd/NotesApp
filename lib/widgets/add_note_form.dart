@@ -48,9 +48,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
           SizedBox(
             height: 20,
           ),
+          ColorListView(),
           SizedBox(
-            height: 33 * 2,
-            child: ColorListView(),
+            height: 20,
           ),
           CustomButton(
             ontap: () {
