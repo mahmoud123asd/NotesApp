@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cuibts/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/views/edit_note_view.dart';
+import 'package:notes_app/widgets/swipe_note_item.dart';
 
 class NoteItem extends StatelessWidget {
   final NoteModel note;
@@ -10,13 +10,8 @@ class NoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => EditNoteView(
-                  note: note,
-                )));
-      },
+    return SwipeNoteItem(
+      note: note,
       child: Container(
         margin: EdgeInsets.only(bottom: 10),
         padding: EdgeInsets.only(top: 16, bottom: 16, right: 16),
