@@ -46,8 +46,8 @@ class SwipeNoteItem extends StatelessWidget {
           final confirmed = await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              title: Text('Delete?'),
-              content: Text('Are you sure you want to delete $note?'),
+              title: Text('Delete!'),
+              content: Text('Are you sure you want to delete this note?'),
               actions: [
                 TextButton(
                     onPressed: () => Navigator.pop(context, false),
@@ -63,11 +63,11 @@ class SwipeNoteItem extends StatelessWidget {
           );
           return confirmed;
         } else {
-           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => EditNoteView(
-                  note: note,
-                )));
-                return false;
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => EditNoteView(
+                    note: note,
+                  )));
+          return false;
         }
       },
       onDismissed: (direction) {
