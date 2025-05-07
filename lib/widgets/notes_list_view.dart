@@ -14,8 +14,7 @@ class NotesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-        if(state is NoteInitial)
-        {
+        if (state is NoteInitial) {
           BlocProvider.of<NotesCubit>(context).fetchAllNotes();
         }
         List<NoteModel> notes =
@@ -27,7 +26,9 @@ class NotesListView extends StatelessWidget {
               padding: EdgeInsets.all(0),
               itemCount: notes.length,
               itemBuilder: (BuildContext context, int index) {
-                return NoteItem(note: notes[index],);
+                return NoteItem(
+                  note: notes[notes.length - 1 - index],
+                );
               },
             ),
           ),
